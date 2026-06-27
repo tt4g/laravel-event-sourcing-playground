@@ -1,0 +1,35 @@
+{
+  "name": "Existing Docker Compose (Extend)",
+  "dockerComposeFile": [
+    "../compose.yml",
+    "./compose.yml"
+  ],
+  "service": "laravel-event-sourcing-playground-php",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "bash",
+            "icon": "terminal-bash",
+            "args": [
+              "-l"
+            ]
+          }
+        }
+      },
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "shardulm94.trailing-spaces",
+        "yzhang.markdown-all-in-one",
+        "wix.vscode-import-cost",
+        "pflannery.vscode-versionlens",
+        "laravel.vscode-laravel",
+        "xdebug.php-debug",
+        "bmewburn.vscode-intelephense-client"
+      ]
+    }
+  }
+}

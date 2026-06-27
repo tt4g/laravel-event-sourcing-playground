@@ -1,0 +1,55 @@
+x-laravel-event-sourcing-playground-common-ulimits: &laravel-event-sourcing-playground-common-ulimits
+  nproc: 65535
+  nofile:
+    soft: 65535
+    hard: 65535
+  memlock:
+    soft: -1
+    hard: -1
+
+x-laravel-event-sourcing-playground-common-logging: &laravel-event-sourcing-playground-common-logging
+  driver: "json-file"
+  options:
+    max-size: "1m"
+    max-file: 3
+
+services:
+  # FrankenPHP container.
+  # See:
+  #  * https://github.com/php/frankenphp/blob/v1.12.4/docs/laravel.md
+  #  * https://github.com/php/frankenphp/blob/v1.12.4/docs/config.md
+  #  * https://github.com/php/frankenphp/blob/v1.12.4/docs/known-issues.md
+  #  * https://github.com/php/frankenphp/blob/v1.12.4/docs/production.md
+  laravel-event-sourcing-playground-php:
+    build:
+      context: "./.container/php/image"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+      # HEALTHCHECK defined in FrankenPHP container.
+      # See: https://github.com/php/frankenphp/blob/v1.12.4/Dockerfile#L35
+    # healthcheck:
+    ulimits:
+      <<: *laravel-event-sourcing-playground-common-ulimits
+    logging:
+      <<: *laravel-event-sourcing-playground-common-logging
+
+  # PostgreSQL container.
+  laravel-event-sourcing-playground-postgres:
+    image: "postgres:18.4-trixie"
+    environment:
+      POSTGRES_USER: laravel-event-sourcing-playground
+      POSTGRES_PASSWORD: laravel-event-sourcing-playground
+      POSTGRES_DB: laravel-event-sourcing-playground
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: "10s"
+      timeout: "5s"
+      retries: 5
+      start_period: "30s"
+      start_interval: "15s"
+    ulimits:
+      <<: *laravel-event-sourcing-playground-common-ulimits
+    logging:
+      <<: *laravel-event-sourcing-playground-common-logging

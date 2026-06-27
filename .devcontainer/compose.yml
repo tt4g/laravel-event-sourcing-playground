@@ -1,0 +1,14 @@
+
+services:
+
+  laravel-event-sourcing-playground-php:
+    ports:
+        # Expose `php artisan octane:frankenphp` listen port.
+      - "8000:8000"
+    volumes:
+      - type: "bind"
+        source: "./"
+        target: "/app"
+        consistency: "cached"
+
+    command: sleep infinity
