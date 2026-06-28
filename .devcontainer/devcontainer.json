@@ -28,7 +28,8 @@
         "pflannery.vscode-versionlens",
         "laravel.vscode-laravel",
         "xdebug.php-debug",
-        "bmewburn.vscode-intelephense-client"
+        "bmewburn.vscode-intelephense-client",
+        "sanderronde.phpstan-vscode"
       ]
     }
   }
