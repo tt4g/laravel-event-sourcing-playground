@@ -28,6 +28,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 
 RUN install-php-extensions \
         xdebug-3.5.3 \
+        pcntl \
         zip \
         opcache
 
