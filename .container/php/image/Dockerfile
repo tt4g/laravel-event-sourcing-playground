@@ -9,6 +9,10 @@ COPY --from=composer:2.2.28 /usr/bin/composer /usr/bin/composer
 # See: https://github.com/mlocati/docker-php-extension-installer
 COPY --from=mlocati/php-extension-installer:2.11.12 /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions
 
+# Install Node.js.
+COPY --from=node:26.4.0-trixie /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=node:26.4.0-trixie /usr/local/bin/node /usr/local/bin/node
+RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
