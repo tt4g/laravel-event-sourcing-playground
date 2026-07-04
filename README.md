@@ -17,3 +17,7 @@ debugger.
 See: [.vscode/launch.json](./.vscode/launch.json)
 
 Visit `http://localhost:8000/`.
+
+If you want to Vite dev server, run `npm run dev` in console.
+You must do this before lunching Visutl Studio Code debugger.
+Alternatively: run `npm run build` after updating assets.
