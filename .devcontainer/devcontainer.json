@@ -28,6 +28,7 @@
         "pflannery.vscode-versionlens",
         "laravel.vscode-laravel",
         "xdebug.php-debug",
+        "neilbrayfield.php-docblocker",
         "bmewburn.vscode-intelephense-client",
         "sanderronde.phpstan-vscode"
       ]
