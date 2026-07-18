@@ -14,7 +14,8 @@
         "octane:frankenphp",
         "--port=8000",
         "--host=0.0.0.0",
-        "--max-requests=1000"
+        "--max-requests=1000",
+        "--watch"
       ],
       "env": {
         "XDEBUG_MODE": "debug,develop",
