@@ -28,4 +28,14 @@ export default defineConfig({
             formVariants: true,
         }),
     ],
+    server: {
+        // Allow connections from the container host.
+        // See: https://github.com/vitejs/vite/discussions/3396
+        host: '0.0.0.0',
+        ws: {
+            // Support HMR for the container host and WSL.
+            // See: https://github.com/laravel/docs/blob/13.x/vite.md#running-the-development-server-in-sail-on-wsl2
+            host: 'localhost',
+        },
+    },
 });
