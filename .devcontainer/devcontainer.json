@@ -18,6 +18,9 @@
               "-l"
             ]
           }
+        },
+        "[php]": {
+          "editor.defaultFormatter": "laravel.vscode-laravel"
         }
       },
       "extensions": [
