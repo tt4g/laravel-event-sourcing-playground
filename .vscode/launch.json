@@ -9,7 +9,7 @@
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "php",
       "runtimeArgs": [
-        "-dxdebug.start_with_request=yes",
+        "-dxdebug.start_with_request=trigger",
         "artisan",
         "octane:frankenphp",
         "--port=8000",
@@ -19,7 +19,8 @@
       ],
       "env": {
         "XDEBUG_MODE": "debug,develop",
-        "XDEBUG_CONFIG": "client_host=127.0.0.1 client_port=${port}"
+        "XDEBUG_CONFIG": "trigger_value=laravel_event_sourcing_playground_debug client_host=127.0.0.1 client_port=${port}",
+        "XDEBUG_TRIGGER": "laravel_event_sourcing_playground_debug",
       }
     },
     {
