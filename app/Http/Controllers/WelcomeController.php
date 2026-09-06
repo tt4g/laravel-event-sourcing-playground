@@ -8,7 +8,7 @@ class WelcomeController extends Controller
 {
     public function index(): \Inertia\Response {
         return Inertia::render('welcome', [
-            'welcomeMessage' => 'TODO',
+            'welcomeMessage' => 'Go to Account',
         ]);
     }
 }

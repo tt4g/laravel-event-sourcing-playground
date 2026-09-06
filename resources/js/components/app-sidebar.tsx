@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
+import { CreditCard, LayoutGrid } from 'lucide-react';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import {
@@ -12,6 +12,7 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
+import { index as accountIndex } from '@/routes/accounts';
 import type { NavItem } from '@/types';
 
 const mainNavItems: NavItem[] = [
@@ -20,18 +21,18 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Account',
+        href: accountIndex(),
+        icon: CreditCard,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
     {
-        title: 'TODO',
-        href: 'https://example.com/',
-        icon: FolderGit2,
-    },
-    {
-        title: 'TODO',
-        href: 'https://example.com/',
-        icon: BookOpen,
+        title: 'Account',
+        href: accountIndex(),
+        icon: CreditCard,
     },
 ];
 
@@ -44,6 +45,11 @@ export function AppSidebar() {
                         <SidebarMenuButton size="lg" asChild>
                             <Link href={dashboard()} prefetch>
                                 Dashboard
+                            </Link>
+                        </SidebarMenuButton>
+                        <SidebarMenuButton size="lg" asChild>
+                            <Link href={accountIndex()} prefetch>
+                                Account
                             </Link>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
